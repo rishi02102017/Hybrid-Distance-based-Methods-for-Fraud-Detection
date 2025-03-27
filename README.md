@@ -1,74 +1,99 @@
-Hybrid Distance-based Methods for Fraud Detection
+# 🛡️ Hybrid Distance-Based Methods for Fraud Detection
 
-This project aims to detect fraudulent credit card transactions using the k-Nearest Neighbors (k-NN) algorithm. Due to the imbalanced nature of fraud detection datasets, we applied various techniques for data preprocessing, feature reduction, and model evaluation.
+A smart approach to credit card fraud detection using **k-Nearest Neighbors (k-NN)** and **dimensionality reduction techniques** like **PCA** to enhance model performance on **imbalanced datasets**.
 
-## Project Overview
+---
 
-Credit card fraud detection is a critical application for protecting users and financial institutions from malicious activities. This project involves:
+## 📌 Overview
 
-- Data preprocessing and normalization
-- Visualization of data distribution for fraud and non-fraud classes
-- Dimensionality reduction using PCA
-- Training and optimizing a k-Nearest Neighbors classifier
-- Model evaluation and performance metrics
+Credit card fraud is a serious threat in today’s digital economy. This project builds a **hybrid distance-based fraud detection system** that incorporates:
 
-## Dataset
+- 📊 Data preprocessing & normalization  
+- 🔍 Exploratory data analysis (EDA)  
+- 🔻 Dimensionality reduction using PCA  
+- 🤖 Training an optimized k-NN classifier  
+- 📈 Performance evaluation using robust metrics  
 
-The dataset used in this project is the **Credit Card Fraud Detection** dataset from Kaggle. This dataset contains transaction data where each entry is classified as either fraud (Class=1) or non-fraud (Class=0). 
+---
 
-Key columns:
-- **V1-V28**: Anonymized principal components from PCA.
-- **Amount**: Transaction amount.
-- **Class**: Target variable (0 = non-fraud, 1 = fraud).
+## 📂 Dataset
 
-*Note: The original dataset was large, so we used a 5% sample for faster processing in this implementation.*
+- **Source:** [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)  
+- Features:  
+  - `V1-V28`: Anonymized PCA-transformed features  
+  - `Amount`: Transaction value  
+  - `Class`: Target (0 = non-fraud, 1 = fraud)  
+- A **5% sample** was used for experimentation to ensure faster processing.
 
-## Project Structure
+---
 
-### 1. Data Loading and Preprocessing
-- Loaded the dataset and checked for missing values.
-- Standardized the `Amount` column using StandardScaler.
-- Dropped irrelevant columns to keep the feature set concise.
+## 🧭 Project Pipeline
 
-### 2. Exploratory Data Analysis (EDA)
-- Visualized class distribution (fraud vs. non-fraud).
-- Analyzed distributions of various features using histograms.
-- Plotted correlation heatmaps to understand feature relationships.
+### 1️⃣ Data Loading & Preprocessing
+- Checked for null values  
+- Scaled `Amount` using `StandardScaler`  
+- Removed irrelevant columns
 
-### 3. Dimensionality Reduction
-- Applied PCA to reduce the dataset to two principal components, allowing us to visualize data clusters.
-- Performed 2D visualization to observe the separation of fraud and non-fraud cases.
+### 2️⃣ Exploratory Data Analysis (EDA)
+- Visualized class imbalance  
+- Analyzed feature distributions  
+- Correlation heatmap analysis
 
-### 4. Subsampling and Balancing
-- Due to class imbalance, we sampled an equal number of fraud and non-fraud cases to create a balanced dataset.
-- Shuffled the data before splitting into training and test sets.
+### 3️⃣ Dimensionality Reduction
+- Applied PCA to reduce dimensionality  
+- Visualized fraud vs. non-fraud clusters in 2D space
 
-### 5. Model Training and Optimization
-- Used k-Nearest Neighbors (k-NN) as the classifier.
-- Evaluated different values of k (neighbors) to optimize the classifier.
-- Selected the optimal k based on highest test accuracy and trained the final model.
+### 4️⃣ Sampling & Balancing
+- Created a balanced dataset using undersampling  
+- Ensured even class distribution for training
 
-### 6. Model Evaluation
-- Used metrics such as accuracy, precision, recall, F1 score, and Matthews Correlation Coefficient (MCC).
-- Plotted the ROC curve and calculated the AUC score for model assessment.
+### 5️⃣ Model Training & Optimization
+- Trained k-NN with various `k` values  
+- Selected best `k` based on test set accuracy
 
-### 7. Saving and Loading the Model
-- Saved the trained model to disk for reuse.
-- Demonstrated how to reload the model and use it for future predictions.
+### 6️⃣ Evaluation Metrics
+- **Accuracy**, **Precision**, **Recall**, **F1 Score**, **Matthews Correlation Coefficient (MCC)**  
+- Plotted **ROC curve** and calculated **AUC**
 
-## Key Results
+### 7️⃣ Model Persistence
+- Saved final model using `joblib`  
+- Demonstrated model reloading and prediction on new data
 
-- **Optimal k Value**: The optimal value for k was selected based on test accuracy.
-- **Evaluation Metrics**: Accuracy, precision, recall, F1 score, and MCC were computed to evaluate model performance.
-- **ROC Curve and AUC**: The ROC curve showed the model’s ability to distinguish between classes, with the AUC score reflecting classification performance.
+---
 
-## Requirements
+## 🚀 Key Results
 
-The project uses the following Python libraries:
+✅ Optimal `k` selected through evaluation on test set  
+✅ High performance on key metrics: Precision, Recall, MCC  
+✅ ROC-AUC curve validated strong model performance
 
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scikit-learn
-- joblib
+---
+
+## 🧰 Tech Stack
+
+| Tool            | Purpose                         |
+|-----------------|---------------------------------|
+| `pandas`        | Data loading & manipulation     |
+| `numpy`         | Numerical computations          |
+| `matplotlib`, `seaborn` | Visualization          |
+| `scikit-learn`  | ML modeling, PCA, evaluation    |
+| `joblib`        | Model serialization             |
+
+---
+
+## 📁 Files Included
+
+- `ML_Project.ipynb` – Full implementation and walkthrough  
+- `model.pkl` – Serialized k-NN model  
+- `README.md` – Project documentation  
+
+---
+
+## ✨ Author
+- **Jyotishman Das**  
+- M.Tech AI @ IIT Jodhpur | AI/ML Engineer  
+- [LinkedIn](https://www.linkedin.com/in/jyotishmandas85p)
+- [Website](https://my-portfolio-jyotishman-das-projects.vercel.app/)
+
+
+---
